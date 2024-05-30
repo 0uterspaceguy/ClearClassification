@@ -1,0 +1,7 @@
+__pycache__
+utils/__pycache__
+
+dataset/
+
+drawed/
+!.gitkeep

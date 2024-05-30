@@ -1,0 +1,69 @@
+do_visualize: True  # Whether to do visualization
+num_images_to_vis: 500 # Number of images to visualize
+
+Correction: 
+  correct_issue_labels: True # Whether to do labels correction
+
+Model:
+    class_name: EfficientNetV2_s # Name of class for model (can be found in models/__init__.py)
+    num_classes: 9 # Number of classes in dataset
+
+Training:
+  epochs: 15 # Number of epochs
+  batch_size: 32 # Batch size for training
+  num_workers: 40 # Number of workers for dataloaders
+  patience: 2 # Patience for reduce lr (in epochs)
+  warmup: 1 # Number of warmup epochs (can be float) > 0
+  lr: 0.0003 # Learning rate for training
+  min_lr: 0.000005 # Minimum learning rate
+  factor: 0.9 # Factor for reduce lr
+  weighted_sampler: True # Wheter to use weighted sampler for balance data
+
+Dataset:
+  num_folds: 5  # number of folds to split dataset
+  dataset_path: /workspace/dataset/ # path to dataset in container
+
+  names: ['black',  'blue',  'brown',  'green',  'grey',  'orange',  'red',  'white',  'yellow'] # Class names
+
+  transform:
+    resize:  # Resize transform
+        size: [224, 224] 
+
+    rotation: # Rotate transform
+        degrees: 35
+
+    hflip: # Horizontal flip
+        p: 0.5
+    
+    vflip: # Vertical flip
+        p: 0.  
+
+    perspective: # Perspectve transform
+        distortion_scale: 0.1
+        p: 0.2
+
+    # color_jitter: # HSV transform
+    #     brightness: 0.3
+    #     contrast: 0.2
+    #     saturation: 0.1
+    #     hue: 0.1
+
+    # random_crop: # Random crop
+    #     size: [128, 128]
+
+    # blur: # GaussianBlur
+    #     kernel_size: [5, 9]
+    #     sigma: [0.1, 5]
+
+# If you want to disable specific transformation
+# just make it as comment like this
+
+
+    
+
+
+
+
+
+
+

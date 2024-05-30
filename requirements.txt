@@ -1,0 +1,4 @@
+efficientnet-pytorch==0.7.1
+jsonlines==4.0.0
+pytorch_warmup==0.1.1
+cleanlab[all]==2.6.5

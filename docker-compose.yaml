@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  entrypoint:
+    build: .
+    container_name: clear_classification
+    runtime: nvidia
+    shm_size: 128gb
+    volumes:
+      - /mnt/disk/datasets/colors/:/workspace/dataset  # датасет
+      - ./configs/config.yaml:/workspace/configs/config.yaml # конфиг
+      - ./drawed/:/workspace/drawed # куда будут складываться картинки с отрисовкой
+
+    image: clear_classification
+
+
